@@ -19,6 +19,16 @@ namespace PreAndAppenderStrategies
             Console.WriteLine(coll.First()); // take 1th element and remove it
             Console.WriteLine(coll.First());
             Console.WriteLine(coll.Last()); // only 1 element left, doesn't matter which method we use
+
+            Console.WriteLine(coll.Count); // should be 0
+
+            coll.Append("Test");
+
+            Console.WriteLine(coll.Count); // should be 1
+
+            coll.Clear();
+
+            Console.WriteLine(coll.Count); // should be 0
         }
     }
 }
