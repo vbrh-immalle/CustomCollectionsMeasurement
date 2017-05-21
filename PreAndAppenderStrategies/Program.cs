@@ -10,24 +10,24 @@ namespace PreAndAppenderStrategies
     {
         static void Main(string[] args)
         {
-            var stack = new System.Collections.Stack();
+            var queue = new System.Collections.Queue();
 
-            stack.Push("last in");
-            stack.Push(3);
-            stack.Push("first out");
-            stack.Push("LIFO");
+            queue.Enqueue("first in");
+            queue.Enqueue(3);
+            queue.Enqueue("first out");
+            queue.Enqueue("FIFO");
 
-            Console.WriteLine(stack.Peek()); // we only peek, we don't pop
-            Console.WriteLine(stack.Count); // all are still in
-            Console.WriteLine(stack.Pop()); // we take out "LIFO"
-            Console.WriteLine(stack.Pop()); // we take out "first out"
-            Console.WriteLine(stack.Pop());
-            Console.WriteLine(stack.Pop());
-            Console.WriteLine(stack.Count); // stack is empty
+            Console.WriteLine(queue.Peek()); // we only peek
+            Console.WriteLine(queue.Count); // all are still in
+            Console.WriteLine(queue.Dequeue()); // we take out "LIFO"
+            Console.WriteLine(queue.Dequeue()); // we take out "first out"
+            Console.WriteLine(queue.Dequeue());
+            Console.WriteLine(queue.Dequeue());
+            Console.WriteLine(queue.Count); // stack is empty
 
             try
             {
-                Console.WriteLine(stack.Pop());
+                Console.WriteLine(queue.Dequeue());
             }
             catch(InvalidOperationException e) {
                 Console.ForegroundColor = ConsoleColor.Red;
