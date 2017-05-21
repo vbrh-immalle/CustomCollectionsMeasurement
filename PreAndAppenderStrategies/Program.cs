@@ -10,10 +10,10 @@ namespace PreAndAppenderStrategies
     {
         static void Main(string[] args)
         {
-            var queue = new System.Collections.Queue();
+            var queue = new System.Collections.Generic.Queue<string>();
 
             queue.Enqueue("first in");
-            queue.Enqueue(3);
+            //queue.Enqueue(3); // not allowed anymore
             queue.Enqueue("first out");
             queue.Enqueue("FIFO");
 
@@ -21,7 +21,6 @@ namespace PreAndAppenderStrategies
             Console.WriteLine(queue.Count); // all are still in
             Console.WriteLine(queue.Dequeue()); // we take out "LIFO"
             Console.WriteLine(queue.Dequeue()); // we take out "first out"
-            Console.WriteLine(queue.Dequeue());
             Console.WriteLine(queue.Dequeue());
             Console.WriteLine(queue.Count); // stack is empty
 
