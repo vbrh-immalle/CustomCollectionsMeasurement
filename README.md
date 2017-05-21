@@ -8,10 +8,11 @@ Dit is een inleiding in **datastructuren** en de bijhorende **algoritmen**.
 - Gebruik van een `System.Collections.Queue` + exception bij aanroepen van `Dequeue()` bij een lege Queue.
 - Gebruik van een `System.Collection.Generic.Queue<T>` met `T` als `string`
 - Gebruik van een `System.Collections.Generic.List<T>`
+- Maken van een eigen datastructuur `MyCustomCollection` op basis van `List<string>`
 
 # In deze branch
 
-- Maken van een eigen datastructuur `MyCustomCollection` op basis van `List<string>`:
+- Maken van een eigen datastructuur `MyCustomCollection` op basis van array met Test-project o.w.v. complexiteit
   - met de methods:
 	  - `Append(string element)` : voeg toe op het einde
 	  - `Prepend(string element)` : voeg toe aan het begin
@@ -20,13 +21,3 @@ Dit is een inleiding in **datastructuren** en de bijhorende **algoritmen**.
 	  - `Last()` : return het laatste element en verwijderd het
   - met de property:
 	  - `Count` : returnt het aantal elementen
-
-- Eventueel kunnen we een indexer implementeren om de elementen via index te benaderen:
-  - `[]` : index-operator
-
-- Om backwards compatibiliteit te hebben, kunnen we **overwegen** om deze methods ook te implementeren:
-  - `Pop()` : return en verwijder het eerste element
-  - `Push()` : alias voor `Prepend()`
-  - `Enqueue()` : alias voor `Prepend()`
-  - `Dequeue()` : return en verwijder het laatste element
-

@@ -6,44 +6,80 @@ using System.Threading.Tasks;
 
 namespace PreAndAppenderStrategies
 {
-    class MyCustomCollection
+    public class MyCustomCollection
     {
-        List<string> data = new List<string>();
+        const int defaultSize = 100;
+        string[] data = new string[defaultSize];
+        int nrOfElements = 0;
+        int resizeFactor = 1;
+
+        private void IncreaseArraySize()
+        {
+            if(nrOfElements >= defaultSize)
+            {
+                resizeFactor++;
+                Array.Resize(ref data, resizeFactor * defaultSize);
+            }
+        }
 
         public void Append(string element)
         {
-            data.Add(element);
+            IncreaseArraySize();
+
+            data[nrOfElements] = element;
+            nrOfElements++;
         }
 
         public void Prepend(string element)
         {
-            data.Insert(0, element);
+            IncreaseArraySize();
+
+            for(var i = nrOfElements; i > 0; i--)
+            {
+                data[i] = data[i - 1];
+            }
+
+            data[0] = element;
+            nrOfElements++;
         }
 
         public void Clear()
         {
-            data.Clear();
+            Array.Resize(ref data, defaultSize);
+            Array.Clear(data, 0, data.Length);
+            nrOfElements = 0;
         }
 
         public int Count
         {
             get
             {
-                return data.Count;
+                return nrOfElements;
             }
         }
 
         public string First()
         {
             var element = data[0];
-            data.RemoveAt(0);
+
+            for(var i = 0; i < data.Length - 1; i++)
+            {
+                data[i] = data[i + 1];
+            }
+            
+            data[data.Length - 1] = null;
+            nrOfElements--;
+
             return element;
         }
 
         public string Last()
         {
-            var element = data[data.Count - 1];
-            data.RemoveAt(data.Count - 1);
+            var element = data[nrOfElements - 1];
+
+            data[nrOfElements - 1] = null;
+            nrOfElements--;
+
             return element;
         }
     }
