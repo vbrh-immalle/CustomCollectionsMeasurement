@@ -10,27 +10,15 @@ namespace PreAndAppenderStrategies
     {
         static void Main(string[] args)
         {
-            var list = new System.Collections.Generic.List<string>();
+            var coll = new MyCustomCollection();
 
-            list.Add("FIFO, LIFO, FILO or LILO?"); // Enqueue
-            list.Add("With a List or array ..."); // Enqueue
-            list.Add("... we can choose!"); // Enqueue
+            coll.Append("How are you?");
+            coll.Prepend("Hello!");
+            coll.Append("I'm fine, thank you!");
 
-            // do a 'Peek'
-            Console.WriteLine(list[0]);
-
-            // count
-            Console.WriteLine(list.Count);
-
-            // do a 'Dequeue'
-            Console.WriteLine(list[list.Count - 1]);
-            list.RemoveAt(list.Count - 1);
-
-            // do a 'Pop'
-            Console.WriteLine(list[0]);
-            list.RemoveAt(0);
-
-            Console.WriteLine(list.Count); // 1 left
+            Console.WriteLine(coll.First()); // take 1th element and remove it
+            Console.WriteLine(coll.First());
+            Console.WriteLine(coll.Last()); // only 1 element left, doesn't matter which method we use
         }
     }
 }
