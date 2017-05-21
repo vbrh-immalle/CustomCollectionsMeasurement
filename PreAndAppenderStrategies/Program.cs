@@ -8,27 +8,71 @@ namespace PreAndAppenderStrategies
 {
     class Program
     {
+
+        struct Measurement
+        {
+            public TimeSpan Append;
+            public TimeSpan Prepend;
+            public TimeSpan First;
+            public TimeSpan Last;
+
+            public override string ToString()
+            {
+                var str = "Append: " + Append.ToString() + Environment.NewLine;
+                str += "Prepend: " + Prepend.ToString() + Environment.NewLine;
+                str += "First: " + First.ToString() + Environment.NewLine;
+                str += "Last: " + Last.ToString() + Environment.NewLine;
+
+                return str;
+            }
+        }
+
         static void Main(string[] args)
         {
-            var coll = new MyCustomCollection();
+            const int times = 2000;
+    
+            DateTime before;
+            DateTime after;
 
-            coll.Append("How are you?");
-            coll.Prepend("Hello!");
-            coll.Append("I'm fine, thank you!");
+            Measurement arrayMeasurement = new Measurement();
+           // Measurement listMeasurement;
 
-            Console.WriteLine(coll.First()); // take 1th element and remove it
-            Console.WriteLine(coll.First());
-            Console.WriteLine(coll.Last()); // only 1 element left, doesn't matter which method we use
+            var coll = new MyCustomArrayCollection();
 
-            Console.WriteLine(coll.Count); // should be 0
+            before = DateTime.Now;
+            for(var i = 0; i < times; i++)
+            {
+                coll.Append(i.ToString());
+            }
+            after = DateTime.Now;
+            arrayMeasurement.Append = after - before;
 
-            coll.Append("Test");
+            before = DateTime.Now;
+            for(var i = 0; i < times; i++)
+            {
+                var _ = coll.First();
+            }
+            after = DateTime.Now;
+            arrayMeasurement.First = after - before;
 
-            Console.WriteLine(coll.Count); // should be 1
+            before = DateTime.Now;
+            for(var i = 0; i < times; i++)
+            {
+                coll.Prepend(i.ToString());
+            }
+            after = DateTime.Now;
+            arrayMeasurement.Prepend = after - before;
+            
+            before = DateTime.Now;
+            for(var i = 0; i < times; i++)
+            {
+                var _ = coll.Last();
+            }
+            after = DateTime.Now;
+            arrayMeasurement.Prepend = after - before;
 
-            coll.Clear();
 
-            Console.WriteLine(coll.Count); // should be 0
+            Console.WriteLine(arrayMeasurement.ToString());
         }
     }
 }

@@ -10,7 +10,7 @@ namespace MyCustomCollectionTests
         [TestMethod]
         public void TestAppendAndFirst()
         {
-            var coll = new MyCustomCollection();
+            var coll = new MyCustomArrayCollection();
 
             // add 100 items
             for(var i = 0; i < 100; i++)
@@ -28,7 +28,7 @@ namespace MyCustomCollectionTests
         [TestMethod]
         public void TestPrependAndLast()
         {
-            var coll = new MyCustomCollection();
+            var coll = new MyCustomArrayCollection();
 
             // add 100 items
             for(var i = 0; i < 100; i++)
@@ -46,7 +46,7 @@ namespace MyCustomCollectionTests
         [TestMethod]
         public void TestBigSize()
         {
-            var coll = new MyCustomCollection();
+            var coll = new MyCustomArrayCollection();
 
             // add 550 items
             for(var i = 0; i < 550; i++)
@@ -66,7 +66,7 @@ namespace MyCustomCollectionTests
         [TestMethod]
         public void TestClear()
         {
-            var coll = new MyCustomCollection();
+            var coll = new MyCustomArrayCollection();
 
             // add 50 items
             for(var i = 0; i < 50; i++)

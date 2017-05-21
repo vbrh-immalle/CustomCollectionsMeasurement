@@ -9,15 +9,8 @@ Dit is een inleiding in **datastructuren** en de bijhorende **algoritmen**.
 - Gebruik van een `System.Collection.Generic.Queue<T>` met `T` als `string`
 - Gebruik van een `System.Collections.Generic.List<T>`
 - Maken van een eigen datastructuur `MyCustomCollection` op basis van `List<string>`
+- Maken van een eigen datastructuur `MyCustomCollection` op basis van array met Test-project o.w.v. complexiteit
 
 # In deze branch
 
-- Maken van een eigen datastructuur `MyCustomCollection` op basis van array met Test-project o.w.v. complexiteit
-  - met de methods:
-	  - `Append(string element)` : voeg toe op het einde
-	  - `Prepend(string element)` : voeg toe aan het begin
-	  - `Clear()` : wis alle elementen
-	  - `First()` : returnt het eerste element en verwijderd het
-	  - `Last()` : return het laatste element en verwijderd het
-  - met de property:
-	  - `Count` : returnt het aantal elementen
+- Toepassen van polymorfie voor verschillende implementaties van `MyCustomCollection` + meten van tijd
