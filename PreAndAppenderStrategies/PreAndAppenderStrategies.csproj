@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="MyCustomArrayCollection.cs" />
     <Compile Include="MyCustomCollection.cs" />
+    <Compile Include="MyCustomListCollection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

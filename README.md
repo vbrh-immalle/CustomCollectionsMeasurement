@@ -14,3 +14,4 @@ Dit is een inleiding in **datastructuren** en de bijhorende **algoritmen**.
 # In deze branch
 
 - Toepassen van polymorfie voor verschillende implementaties van `MyCustomCollection` + meten van tijd
+	- Je kan je eigen implementatie gemakkelijk toevoegen

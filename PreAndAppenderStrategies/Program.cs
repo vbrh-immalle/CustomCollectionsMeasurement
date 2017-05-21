@@ -27,52 +27,65 @@ namespace PreAndAppenderStrategies
             }
         }
 
-        static void Main(string[] args)
+
+        static Measurement MeasureCustomCollection(MyCustomCollection collection)
         {
-            const int times = 2000;
-    
+            Measurement m = new Measurement();
+            const int times = 5000;
+
             DateTime before;
             DateTime after;
 
-            Measurement arrayMeasurement = new Measurement();
-           // Measurement listMeasurement;
-
-            var coll = new MyCustomArrayCollection();
-
+            // measure Append
             before = DateTime.Now;
             for(var i = 0; i < times; i++)
             {
-                coll.Append(i.ToString());
+                collection.Append(i.ToString());
             }
             after = DateTime.Now;
-            arrayMeasurement.Append = after - before;
+            m.Append = after - before;
 
+            // measure First
             before = DateTime.Now;
             for(var i = 0; i < times; i++)
             {
-                var _ = coll.First();
+                var _ = collection.First();
             }
             after = DateTime.Now;
-            arrayMeasurement.First = after - before;
+            m.First = after - before;
 
+            // measure Prepend
             before = DateTime.Now;
             for(var i = 0; i < times; i++)
             {
-                coll.Prepend(i.ToString());
+                collection.Prepend(i.ToString());
             }
             after = DateTime.Now;
-            arrayMeasurement.Prepend = after - before;
+            m.Prepend = after - before;
             
+            // measure Last
             before = DateTime.Now;
             for(var i = 0; i < times; i++)
             {
-                var _ = coll.Last();
+                var _ = collection.Last();
             }
             after = DateTime.Now;
-            arrayMeasurement.Prepend = after - before;
+            m.Prepend = after - before;
+
+            return m;
+        }
 
 
-            Console.WriteLine(arrayMeasurement.ToString());
+        static void Main(string[] args)
+        {
+            var arrayColl = new MyCustomArrayCollection();
+            var listColl = new MyCustomListCollection();
+
+            Console.WriteLine("Measuring array collection...");
+            Console.WriteLine(MeasureCustomCollection(arrayColl));
+
+            Console.WriteLine("Measuring list collection...");
+            Console.WriteLine(MeasureCustomCollection(listColl));
         }
     }
 }
